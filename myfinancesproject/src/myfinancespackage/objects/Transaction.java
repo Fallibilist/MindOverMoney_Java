@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
 // Exists to be extended by Income and Expense classes to reduce redundancy
-public class Transaction {
+public abstract class Transaction {
 	protected String name;
 	protected int id;
 	protected double amount;

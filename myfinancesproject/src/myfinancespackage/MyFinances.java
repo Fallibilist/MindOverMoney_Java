@@ -2,6 +2,7 @@ package myfinancespackage;
 
 import myfinancespackage.menumanagement.*;
 import myfinancespackage.objects.*;
+import myfinancespackage.ui.UIControl;
 
 import java.io.IOException;
 
@@ -9,6 +10,8 @@ import myfinancespackage.dbmanagement.*;
 
 public class MyFinances {
 	public static void main(String[] args) throws IOException {
+		UIControl frame = new UIControl();
+		
 		// Allows the user to login or create an account
 		Login.runLogin();
 		
