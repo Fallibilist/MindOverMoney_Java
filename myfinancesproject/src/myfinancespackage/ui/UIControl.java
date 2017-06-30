@@ -7,25 +7,13 @@ import javax.swing.*;
 
 import myfinancespackage.menumanagement.MainMenu;
 
-public class UIControl extends JFrame {
+public class UIControl {
+	private UILogin loginAttempt;
 	private JPanel mainPanel, menuScreen, displayScreen, transactionScreen, editBudgetScreen, loansScreen;
-	private JLabel menuScreenTitle;
+	private JLabel menuScreenTitleLabel;
 	private JButton displayFinancesButton, inputIncomeButton, inputExpensesButton, editBudgetsButton, loansButton;
 	
-    public UIControl() {
-        this.setTitle("My Finances");
-        this.setLocationByPlatform(true);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(270, 400);
-        
-        // Sets the look and feel of the frame to the default for the operating system
-        try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
-				| UnsupportedLookAndFeelException e) {
-			e.printStackTrace();
-		}
-
+    public UIControl(JFrame parentFrame) {
     	mainPanel = new JPanel();
     	mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
     	
@@ -35,16 +23,16 @@ public class UIControl extends JFrame {
         createEditBudgetScreen();
         createLoansScreen();
         
-        this.add(mainPanel);
-        this.setVisible(true);
+        parentFrame.add(mainPanel);
+        parentFrame.setVisible(true);
     }
     
     private void createMainScreen() {
     	menuScreen = new JPanel();
     	menuScreen.setLayout(new GridLayout(6, 1, 0, 5));
         
-        menuScreenTitle = new JLabel("Welcome to My Finances!", SwingConstants.CENTER);
-        menuScreenTitle.setFont(new Font("TimesRoman", Font.BOLD, 20));;
+        menuScreenTitleLabel = new JLabel("Welcome to My Finances!", SwingConstants.CENTER);
+        menuScreenTitleLabel.setFont(new Font("TimesRoman", Font.BOLD, 20));;
         
         displayFinancesButton = new JButton("Display Finances");
         displayFinancesButton.setToolTipText("Displays your financial information");
@@ -52,6 +40,7 @@ public class UIControl extends JFrame {
         displayFinancesButton.addActionListener(new ActionListener() {
         	@Override
         	public void actionPerformed(ActionEvent e) {
+        		// Refresh Data
         		menuScreen.setVisible(false);
         		displayScreen.setVisible(true);
         		MainMenu.displayFinances();
@@ -64,6 +53,7 @@ public class UIControl extends JFrame {
         inputIncomeButton.addActionListener(new ActionListener() {
         	@Override
         	public void actionPerformed(ActionEvent e) {
+        		// Refresh Data
         		menuScreen.setVisible(false);
         		transactionScreen.setVisible(true);
         		
@@ -79,6 +69,7 @@ public class UIControl extends JFrame {
         inputExpensesButton.addActionListener(new ActionListener() {
         	@Override
         	public void actionPerformed(ActionEvent e) {
+        		// Refresh Data
         		menuScreen.setVisible(false);
         		transactionScreen.setVisible(true);
         		
@@ -94,6 +85,7 @@ public class UIControl extends JFrame {
         editBudgetsButton.addActionListener(new ActionListener() {
         	@Override
         	public void actionPerformed(ActionEvent e) {
+        		// Refresh Data
         		menuScreen.setVisible(false);
         		editBudgetScreen.setVisible(true);
         		MainMenu.editBudgets();
@@ -106,13 +98,14 @@ public class UIControl extends JFrame {
         loansButton.addActionListener(new ActionListener() {
         	@Override
         	public void actionPerformed(ActionEvent e) {
+        		// Refresh Data
         		menuScreen.setVisible(false);
         		loansScreen.setVisible(true);
         		MainMenu.loans();
         	}
         });
         
-        menuScreen.add(menuScreenTitle);
+        menuScreen.add(menuScreenTitleLabel);
         menuScreen.add(displayFinancesButton);
         menuScreen.add(inputIncomeButton);
         menuScreen.add(inputExpensesButton);
@@ -125,6 +118,25 @@ public class UIControl extends JFrame {
     private void createDisplayScreen() {
     	displayScreen = new JPanel();
     	displayScreen.setLayout(new GridLayout(6, 1, 0, 5));
+    	
+    	JPanel balanceDisplay = new JPanel();
+    	JPanel budgetDisplay = new JPanel();
+    	JPanel incomeDisplay = new JPanel();
+    	JPanel expenseDisplay = new JPanel();
+    	JPanel loanDisplay = new JPanel();
+    	
+    	// Populate Screen from here
+
+    	JScrollPane budgetScroll = new JScrollPane(budgetDisplay);
+    	JScrollPane incomeScroll = new JScrollPane(incomeDisplay);
+    	JScrollPane expenseScroll = new JScrollPane(expenseDisplay);
+    	JScrollPane loanScroll = new JScrollPane(loanDisplay);
+    	
+    	displayScreen.add(balanceDisplay);
+    	displayScreen.add(budgetScroll);
+    	displayScreen.add(incomeScroll);
+    	displayScreen.add(expenseScroll);
+    	displayScreen.add(loanScroll);
     	
     	displayScreen.setVisible(false);
     	mainPanel.add(displayScreen);

@@ -82,7 +82,7 @@ public class Login {
 		// If the user's input is valid then set a value to user and return true
 		if(valUsername.equals("user") && valPassword.equals("pass")) {
 			// We need to populate the user object from the database here
-			User.defineUser(valUsername, "First", "Last", 10.00, 1);
+			User.defineUser(valUsername, "First", "Last", 1);
 			return true;
 		}
 		// If the user's input is invalid then return false

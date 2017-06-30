@@ -16,12 +16,11 @@ public class DBHandler {
 		}
 		else {
 			try {
-				// Sets the db url, username, and password
-				String url = "jdbc:mysql://localhost:3306/CodeDBMSQLRouter"; // need to add name of server
-				String username = "root";
-				String password = "Onepeice";
+				String url = "jdbc:mysql://localhost:3306/myfinancesproductiondb";
+				String username = "gManager";
+				String password = "Manager|1378|";
 				
-				// get connection
+				// Gets connection to db server
 				connection = DriverManager.getConnection(url, username, password);
 				return connection;
 			} catch(SQLException e) {

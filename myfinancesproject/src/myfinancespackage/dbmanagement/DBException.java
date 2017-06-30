@@ -5,11 +5,11 @@ import java.sql.SQLException;
 public class DBException extends Exception {
 	public DBException(){}
 	
-	public DBException(String message){
+	public DBException(String message) {
 		super(message);
 	}
 	
-	public DBException(SQLException exception){
+	public DBException(SQLException exception) {
 		for(Throwable t : exception){
 			System.out.println(t);
 		}
