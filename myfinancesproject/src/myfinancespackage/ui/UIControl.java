@@ -5,10 +5,7 @@ import java.awt.*;
 
 import javax.swing.*;
 
-import myfinancespackage.menumanagement.MainMenu;
-
 public class UIControl {
-	private UILogin loginAttempt;
 	private JPanel mainPanel, menuScreen, displayScreen, transactionScreen, editBudgetScreen, loansScreen;
 	private JLabel menuScreenTitleLabel;
 	private JButton displayFinancesButton, inputIncomeButton, inputExpensesButton, editBudgetsButton, loansButton;
@@ -43,7 +40,7 @@ public class UIControl {
         		// Refresh Data
         		menuScreen.setVisible(false);
         		displayScreen.setVisible(true);
-        		MainMenu.displayFinances();
+        		//MainMenu.displayFinances();
         	}
         });
         
@@ -59,7 +56,7 @@ public class UIControl {
         		
         		// Here we need to set some value for Transaction screen to denote Income
         		
-        		MainMenu.inputIncome();
+        		//MainMenu.inputIncome();
         	}
         });
         
@@ -75,7 +72,7 @@ public class UIControl {
         		
         		// Here we need to set some value for Transaction screen to denote Expense
         		
-        		MainMenu.inputExpenses();
+        		//MainMenu.inputExpenses();
         	}
         });
         
@@ -88,7 +85,7 @@ public class UIControl {
         		// Refresh Data
         		menuScreen.setVisible(false);
         		editBudgetScreen.setVisible(true);
-        		MainMenu.editBudgets();
+        		//MainMenu.editBudgets();
         	}
         });
         
@@ -101,7 +98,7 @@ public class UIControl {
         		// Refresh Data
         		menuScreen.setVisible(false);
         		loansScreen.setVisible(true);
-        		MainMenu.loans();
+        		//MainMenu.loans();
         	}
         });
         

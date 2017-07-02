@@ -1,36 +1,27 @@
-package myfinancespackage.menumanagement;
+package myfinancespackage.business;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 
-import myfinancespackage.objects.Budget;
-import myfinancespackage.objects.Expense;
-import myfinancespackage.objects.Income;
-import myfinancespackage.objects.Loan;
+import myfinancespackage.business.*;
 
 public class User {
+	private static int id;
 	private static String username;
 	private static String firstName;
 	private static String lastName;
-	private static int id;
-	private static Double balance;
+	private static double balance;
 	private static ArrayList<Income> listOfAllIncome;
 	private static ArrayList<Expense> listOfAllExpenses;
 	private static ArrayList<Budget> listOfAllBudgets;
-	private static ArrayList<Loan> listOfAllLoans;
 	
 	private User() {}
 	
-	public static void defineUser(String createUsername, String createFirstName, String createLastName, int createID) {
+	public static void defineUser(int createID, String createUsername, String createFirstName, String createLastName, double createBalance) {
+		id = createID;
 		username = createUsername;
 		firstName = createFirstName;
 		lastName = createLastName;
-		id = createID;
-		listOfAllIncome = new ArrayList<>();
-		listOfAllExpenses = new ArrayList<>();
-		listOfAllBudgets = new ArrayList<>();
-		listOfAllLoans = new ArrayList<>();
+		balance = createBalance;
 	}
 	
 	public static String getUsername() {
@@ -99,14 +90,6 @@ public class User {
 
 	public static void setListOfAllBudgets(ArrayList<Budget> listOfAllBudgets) {
 		User.listOfAllBudgets = listOfAllBudgets;
-	}
-
-	public static ArrayList<Loan> getListOfAllLoans() {
-		return listOfAllLoans;
-	}
-
-	public static void setListOfAllLoans(ArrayList<Loan> listOfAllLoans) {
-		User.listOfAllLoans = listOfAllLoans;
 	}
 
 	public static void modifyBudget(String typeOfExpenseInput, double amountInput) {

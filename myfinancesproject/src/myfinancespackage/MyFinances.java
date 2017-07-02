@@ -1,7 +1,5 @@
 package myfinancespackage;
 
-import myfinancespackage.menumanagement.*;
-import myfinancespackage.objects.*;
 import myfinancespackage.ui.UIControl;
 import myfinancespackage.ui.UILogin;
 
@@ -10,8 +8,6 @@ import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-
-import myfinancespackage.dbmanagement.*;
 
 public class MyFinances {
 	private static JFrame applicationUI;

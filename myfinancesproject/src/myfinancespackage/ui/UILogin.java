@@ -6,9 +6,8 @@ import java.awt.*;
 
 import javax.swing.*;
 
-import myfinancespackage.dbmanagement.DBException;
-import myfinancespackage.dbmanagement.DBReadAndWrite;
-import myfinancespackage.menumanagement.MainMenu;
+import myfinancespackage.db.DBException;
+import myfinancespackage.db.DBReadAndWrite;
 
 public class UILogin extends JDialog {
 	private JPanel loginPanel, buttonPanel;
@@ -20,7 +19,7 @@ public class UILogin extends JDialog {
 	
 	private String username;
 	private String password;
-	private boolean loginSuccess;
+	private static boolean loginSuccess;
 
 	public UILogin(JFrame parentFrame) {
 		super(parentFrame, "My Finances Login", true);
@@ -98,6 +97,17 @@ public class UILogin extends JDialog {
 			}
 		});
 		buttonPanel.add(cancelButton);
+		
+		this.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				if(!loginSuccess) {
+					System.exit(0);
+				}
+			}
+		});
+		
+		// Add a button to create a new account
 		
 		getContentPane().add(loginPanel, BorderLayout.CENTER);
 		getContentPane().add(buttonPanel, BorderLayout.PAGE_END);

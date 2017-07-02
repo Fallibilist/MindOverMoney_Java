@@ -2,6 +2,7 @@ package myfinancespackage.menumanagement;
 
 import java.util.Scanner;
 
+// Deprecated class after Swing GUI was developed for the application
 public class MainMenu {
 	private static int menuSelection;
 	private static boolean invalidMenuInput;
@@ -9,6 +10,39 @@ public class MainMenu {
 	private static Scanner scan;
 	
 	private MainMenu() {}
+	
+	// Determines if the user would like to return to the main menu
+	// If so, then it sets the global variable returnToMain = true
+	public static void backToMain() {
+		String userInput;
+		boolean invalidResponse = true;
+		
+		while(invalidResponse)
+		{
+			System.out.println("\nReturn to the main menu? (y/n): ");
+			scan = new Scanner(System.in);
+			while(!scan.hasNext())
+			{
+				System.out.print("Please try again: ");
+				scan = new Scanner(System.in);
+			}
+			userInput = scan.next();
+			if(userInput.charAt(0) == 'n' || userInput.charAt(0) == 'N' )
+			{
+				returnToMain = false;
+				invalidResponse = false;
+			}
+			else if(userInput.charAt(0) == 'y' || userInput.charAt(0) == 'Y' )
+			{
+				returnToMain = true;
+				invalidResponse = false;
+			}
+			else
+			{
+				System.out.println("Please enter a valid response.");
+			}
+		}
+	}
 	
 	public static void runMainMenu(String usersName) {
 		returnToMain = false;
@@ -53,11 +87,10 @@ public class MainMenu {
 					break;
 			}
 			
-		}while(returnToMain);
+		} while(returnToMain);
 	}
 	
 	public static void displayFinances() {
-		
 		backToMain();
 	}
 	
@@ -67,50 +100,14 @@ public class MainMenu {
 	}
 	
 	public static void inputExpenses() {
-		
 		backToMain();
 	}
 	
 	public static void editBudgets() {
-		
 		backToMain();
 	}
 	
 	public static void loans() {
-		
 		backToMain();
-	}
-	
-	// Determines if the user would like to return to the main menu
-	// If so, then it sets the global variable returnToMain = true
-	public static void backToMain() {
-		String userInput;
-		boolean invalidResponse = true;
-		
-		while(invalidResponse)
-		{
-			System.out.println("\nReturn to the main menu? (y/n): ");
-			scan = new Scanner(System.in);
-			while(!scan.hasNext())
-			{
-				System.out.print("Please try again: ");
-				scan = new Scanner(System.in);
-			}
-			userInput = scan.next();
-			if(userInput.charAt(0) == 'n' || userInput.charAt(0) == 'N' )
-			{
-				returnToMain = false;
-				invalidResponse = false;
-			}
-			else if(userInput.charAt(0) == 'y' || userInput.charAt(0) == 'Y' )
-			{
-				returnToMain = true;
-				invalidResponse = false;
-			}
-			else
-			{
-				System.out.println("Please enter a valid response.");
-			}
-		}
 	}
 }

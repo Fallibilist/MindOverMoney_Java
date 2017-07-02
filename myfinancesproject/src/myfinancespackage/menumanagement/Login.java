@@ -2,6 +2,7 @@ package myfinancespackage.menumanagement;
 
 import java.util.Scanner;
 
+// Deprecated class after Swing GUI was developed for the application
 public class Login {
 	private static Scanner scan;
 	private static int menuSelection;

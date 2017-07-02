@@ -1,4 +1,4 @@
-package myfinancespackage.dbmanagement;
+package myfinancespackage.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
