@@ -1,15 +1,18 @@
 package myfinancespackage.ui;
 
 import java.awt.event.*;
-import java.util.Arrays;
 import java.awt.*;
 
 import javax.swing.*;
 
+import myfinancespackage.business.User;
 import myfinancespackage.db.DBException;
-import myfinancespackage.db.DBReadAndWrite;
+import myfinancespackage.db.DBManager;
 
 public class UILogin extends JDialog {
+	private JFrame parentFrame;
+	private DBManager dbManager;
+	
 	private JPanel loginPanel, buttonPanel;
 	private GridBagConstraints constraints;
 	private JLabel loginScreenTitleLabel, usernameLabel, passwordLabel;
@@ -21,8 +24,12 @@ public class UILogin extends JDialog {
 	private String password;
 	private static boolean loginSuccess;
 
-	public UILogin(JFrame parentFrame) {
+	public UILogin(JFrame parentFrame, DBManager dbManager) {
 		super(parentFrame, "My Finances Login", true);
+		
+		this.parentFrame = parentFrame;
+		this.dbManager = dbManager;
+		
 		loginSuccess = false;
 		
     	createLoginScreen();
@@ -69,7 +76,7 @@ public class UILogin extends JDialog {
 				username = usernameTextField.getText().trim();
 				password = new String(passwordTextField.getPassword());
 				try {
-					if(DBReadAndWrite.populateUserFromDBInfo(username, password)) {
+					if(dbManager.validateUser(username, password)) {
 						loginSuccess = true;
 						// Close login window
 						dispose();
@@ -81,7 +88,7 @@ public class UILogin extends JDialog {
 						passwordTextField.setText("");
 						loginSuccess = false;
 					}
-				} catch (HeadlessException | DBException e) {
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
@@ -111,6 +118,8 @@ public class UILogin extends JDialog {
 		
 		getContentPane().add(loginPanel, BorderLayout.CENTER);
 		getContentPane().add(buttonPanel, BorderLayout.PAGE_END);
+		
+    	SwingUtilities.getRootPane(loginButton).setDefaultButton(loginButton);
 	}
 	
 	public boolean isLoginSuccess() {

@@ -7,8 +7,10 @@ public class Income extends Transaction {
 		super(idInput, titleInput, amountInput, frequencyInput, lastOccurenceInput);
 	}
 
-	public void submitTransaction() {
-		User.setBalance(User.getBalance() + amount);
+	public double submitTransaction(double balance) {
+		balance += amount;
 		incrementDate();
+		
+		return balance;
 	}
 }

@@ -41,8 +41,12 @@ public class Budget {
 			return 'F';
 		}
 	}
+
+	public int getBudgetId() {
+		return id;
+	}
 	
-	public String getBudgetType() {
+	public String getBudgetTitle() {
 		return title;
 	}
 

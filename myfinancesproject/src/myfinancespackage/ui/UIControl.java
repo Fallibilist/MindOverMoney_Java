@@ -5,12 +5,23 @@ import java.awt.*;
 
 import javax.swing.*;
 
+import myfinancespackage.business.User;
+import myfinancespackage.db.DBManager;
+
 public class UIControl {
+	private JFrame parentFrame;
+	private DBManager dbManager;
+	private User user;
+	
 	private JPanel mainPanel, menuScreen, displayScreen, transactionScreen, editBudgetScreen, loansScreen;
 	private JLabel menuScreenTitleLabel;
 	private JButton displayFinancesButton, inputIncomeButton, inputExpensesButton, editBudgetsButton, loansButton;
 	
-    public UIControl(JFrame parentFrame) {
+    public UIControl(JFrame parentFrame, DBManager dbManager, User user) {
+		this.parentFrame = parentFrame;
+		this.dbManager = dbManager;
+		this.user = user;
+		
     	mainPanel = new JPanel();
     	mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
     	

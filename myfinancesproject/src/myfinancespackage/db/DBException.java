@@ -1,5 +1,6 @@
 package myfinancespackage.db;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 import javax.security.auth.login.FailedLoginException;
@@ -23,6 +24,10 @@ public class DBException extends Exception {
 	}
 	
 	public DBException(FailedLoginException inputException) {
+		exception = inputException;
+	}
+	
+	public DBException(Exception inputException) {
 		exception = inputException;
 	}
 }

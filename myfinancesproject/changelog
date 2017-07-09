@@ -1,0 +1,17 @@
+Version 0.0.6:
+* Created a properties folder to hold server information
+* Created the swing design for the display panel
+* Fixed errors with regards to incorrect information pulls from database
+* Changed result set column access to pull by column name, rather than 
+ index for readability
+* Instead of having a single class to read and write from and to all tables
+ there are now DAO classes relating to each table. Each extends DBGenericDAO
+
+Version 0.0.5:
+* Restructured the application architecture
+* Implemented information pulls from the database
+* Deprecated some classes which had been build for terminal use
+* Updated UI
+* Redesigned some constructor parameters to follow naming standards of
+ data in the database
+* Cleaned up misc code

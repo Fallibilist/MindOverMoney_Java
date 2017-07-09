@@ -3,16 +3,24 @@ package myfinancespackage.business;
 import java.sql.Timestamp;
 
 public class Expense extends Transaction {
-	private String relatedBudget;
+	private int relatedBudget;
 
-	public Expense(int idInput, String titleInput, double amountInput, String frequencyInput, Timestamp lastOccurenceInput, String relatedBudgetInput) {
+	public Expense(int idInput, String titleInput, double amountInput, String frequencyInput, Timestamp lastOccurenceInput, int relatedBudgetId) {
 		super(idInput, titleInput, amountInput, frequencyInput, lastOccurenceInput);
-		relatedBudget = relatedBudgetInput;
+		relatedBudget = relatedBudgetId;
 	}
 	
-	public void submitTransaction() {
-		User.setBalance(User.getBalance() - amount);
+//	For when we implement timed transactions
+//	public void submitTransaction() {
+//		User.setBalance(User.getBalance() - amount);
+//		incrementDate();
+//		User.modifyBudget(relatedBudget, amount);
+//	}
+
+	public double submitTransaction(double balance) {
+		balance += amount;
 		incrementDate();
-		User.modifyBudget(relatedBudget, amount);
+		
+		return balance;
 	}
 }
