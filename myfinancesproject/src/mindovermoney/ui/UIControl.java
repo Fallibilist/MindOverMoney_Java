@@ -1,12 +1,12 @@
-package myfinancespackage.ui;
+package mindovermoney.ui;
 
 import java.awt.event.*;
 import java.awt.*;
 
 import javax.swing.*;
 
-import myfinancespackage.business.User;
-import myfinancespackage.db.DBManager;
+import mindovermoney.business.User;
+import mindovermoney.db.DBManager;
 
 public class UIControl {
 	private JFrame parentFrame;

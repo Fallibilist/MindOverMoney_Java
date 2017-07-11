@@ -1,4 +1,4 @@
-package myfinancespackage.db;
+package mindovermoney.db;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

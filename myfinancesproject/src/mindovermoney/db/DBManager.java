@@ -1,4 +1,4 @@
-package myfinancespackage.db;
+package mindovermoney.db;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-import myfinancespackage.business.User;
+import mindovermoney.business.User;
 
 
 public class DBManager {

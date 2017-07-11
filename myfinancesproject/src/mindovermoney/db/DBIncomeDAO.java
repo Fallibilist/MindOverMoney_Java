@@ -1,8 +1,8 @@
-package myfinancespackage.db;
+package mindovermoney.db;
 
 import java.sql.Connection;
 
-import myfinancespackage.business.Income;
+import mindovermoney.business.Income;
 
 public class DBIncomeDAO extends DBGenericDAO<Income> {
 	public DBIncomeDAO(Connection connection, int userID) {

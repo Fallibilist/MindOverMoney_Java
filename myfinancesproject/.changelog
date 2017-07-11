@@ -1,3 +1,8 @@
+Version 0.0.7:
+* Renamed project Mind Over Money to reflect application name change
+* Overhauled UI, both practically and in terms of naming conventions
+* Added a resource folder as well as an image for the main menu
+
 Version 0.0.6:
 * Created a properties folder to hold server information
 * Created the swing design for the display panel
@@ -6,6 +11,7 @@ Version 0.0.6:
  index for readability
 * Instead of having a single class to read and write from and to all tables
  there are now DAO classes relating to each table. Each extends DBGenericDAO
+* Added a changelog file
 
 Version 0.0.5:
 * Restructured the application architecture
@@ -14,4 +20,4 @@ Version 0.0.5:
 * Updated UI
 * Redesigned some constructor parameters to follow naming standards of
  data in the database
-* Cleaned up misc code
+* Cleaned up misc coder

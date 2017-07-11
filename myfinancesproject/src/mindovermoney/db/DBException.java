@@ -1,6 +1,5 @@
-package myfinancespackage.db;
+package mindovermoney.db;
 
-import java.io.IOException;
 import java.sql.SQLException;
 
 import javax.security.auth.login.FailedLoginException;

@@ -1,4 +1,4 @@
-package myfinancespackage.business;
+package mindovermoney.business;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;

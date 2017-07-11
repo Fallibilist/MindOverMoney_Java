@@ -1,8 +1,8 @@
-package myfinancespackage.db;
+package mindovermoney.db;
 
 import java.sql.Connection;
 
-import myfinancespackage.business.User;
+import mindovermoney.business.User;
 
 public class DBUserDAO extends DBGenericDAO<User> {
 	private boolean loginSuccess;

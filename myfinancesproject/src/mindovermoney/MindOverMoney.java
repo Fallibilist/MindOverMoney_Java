@@ -1,9 +1,4 @@
-package myfinancespackage;
-
-import myfinancespackage.business.User;
-import myfinancespackage.db.DBManager;
-import myfinancespackage.ui.UIControl;
-import myfinancespackage.ui.UILogin;
+package mindovermoney;
 
 import java.io.IOException;
 
@@ -11,7 +6,12 @@ import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-public class MyFinances {
+import mindovermoney.business.User;
+import mindovermoney.db.DBManager;
+import mindovermoney.ui.UIControl;
+import mindovermoney.ui.UILogin;
+
+public class MindOverMoney {
 	private static JFrame applicationUI;
 	private static DBManager dbManager;
 	
@@ -31,7 +31,7 @@ public class MyFinances {
 	}
 	
 	private static void setFrameSettings() {
-		applicationUI.setTitle("My Finances");
+		applicationUI.setTitle("Mind Over Money");
 		applicationUI.setLocationByPlatform(true);
 		applicationUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		applicationUI.setSize(270, 400);

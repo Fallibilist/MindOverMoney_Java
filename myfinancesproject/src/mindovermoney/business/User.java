@@ -1,4 +1,4 @@
-package myfinancespackage.business;
+package mindovermoney.business;
 
 import java.util.ArrayList;
 
