@@ -13,12 +13,12 @@ public class Transaction {
 	protected String frequency;
 	protected LocalDateTime lastOccurence;
 	
-	public Transaction(int idInput, String titleInput, double amountInput, String frequencyInput, Timestamp lastOccurenceInput) {
-		title = titleInput;
-		id = idInput;
-		amount = amountInput;
-		frequency = frequencyInput;
-		lastOccurence = lastOccurenceInput.toLocalDateTime();
+	public Transaction(int id, String title, double amount, String frequency, Timestamp lastOccurence) {
+		this.title = title;
+		this.id = id;
+		this.amount = amount;
+		this.frequency = frequency;
+		this.lastOccurence = lastOccurence.toLocalDateTime();
 	}
 	
 	public void diplayTransaction() {
@@ -44,5 +44,25 @@ public class Transaction {
 			default:
 				break;
 		}
+	}
+	
+	public String getTitle() {
+		return this.title;
+	}
+	
+	public int getId() {
+		return this.id;
+	}
+	
+	public double getAmount() {
+		return this.amount;
+	}
+	
+	public String getFrequency() {
+		return this.frequency;
+	}
+	
+	public LocalDateTime getLastOccurence() {
+		return this.lastOccurence;
 	}
 }

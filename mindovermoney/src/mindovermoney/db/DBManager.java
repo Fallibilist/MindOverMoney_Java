@@ -52,7 +52,7 @@ public class DBManager {
 		else {
 			try {
 				Properties serverProperties = new Properties();
- 				serverProperties.load(new FileInputStream("myfinances.properties"));
+ 				serverProperties.load(new FileInputStream("mindovermoney.properties"));
 				
 				String dburl = serverProperties.getProperty("dburl");
 				String username = serverProperties.getProperty("username");

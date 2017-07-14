@@ -160,9 +160,6 @@ public class UILogin extends JDialog {
 				}
 			}
 		});
-
-    	// Sets the default selected button to be the Login Button
-    	SwingUtilities.getRootPane(buttonLogin).setDefaultButton(buttonLogin);
     	
     	// Adds all components to the pane
     	this.getContentPane().add(strutPrimaryWest, BorderLayout.WEST);
@@ -193,6 +190,9 @@ public class UILogin extends JDialog {
     	panelButtonInput.add(buttonLogin);
     	panelButtonInput.add(buttonCreateAccount);
     	panelButtonInput.add(buttonCancel);
+
+    	// Sets the default selected button to be the Login Button
+    	SwingUtilities.getRootPane(buttonLogin).setDefaultButton(buttonLogin);
 	}
 	
 	public boolean isLoginSuccess() {

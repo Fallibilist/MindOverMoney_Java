@@ -1,3 +1,9 @@
+Version 0.1.0:
+* Fixed some bugs caused by renaming the project/repository
+* Implemented all DAO methods dealing with setting table data
+* Renamed some variables and methods for consistency
+* Moved to 0.1.* to reflect major changes to the program
+
 Version 0.0.7:
 * Renamed project Mind Over Money to reflect application name change
 * Overhauled UI, both practically and in terms of naming conventions

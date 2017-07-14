@@ -2,7 +2,6 @@ package mindovermoney.db;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -48,31 +47,15 @@ public abstract class DBGenericDAO<T> {
 		return itemsInTable;
 	}
 
-//	Change this to a setter implementation
-//	protected void setTable(ArrayList<Object> listToConvert) throws Exception {
-//		try {
-//			statement = connection.createStatement();
-//			resultSet = statement.executeQuery("select * from " + this.tableName);
-//			
-//			while(resultSet.next()) {
-//				itemsInTable.add(convertTableToObject());
-//			}
-//		} finally {
-//			closeStatementAndResultSet();
-//		}
-//		
-//		return itemsInTable;
-//	}
-	
 	protected void closeStatementAndResultSet() throws Exception {
 		statement.close();
 		resultSet.close();
 	}
 	
-	// Classes inheriting DBGeneric DAO will override these methods
-	protected T convertTableToObject() throws Exception {
-		return (T) new Object();
-	}
+	// Classes inheriting DBGeneric DAO will override these methods:
+	protected T convertTableToObject() throws Exception {return (T) new Object();}
 
-	protected void storeObjectInTable(T objectToParse) throws Exception {}
+	protected boolean addObjectToTable(T itemToAdd) throws Exception {return false;}
+
+	protected boolean addObjectToTable(T itemToAdd, int idToReplace) throws Exception {return false;}
 }

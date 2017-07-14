@@ -12,6 +12,8 @@ public class User {
 	private ArrayList<Expense> listOfAllExpenses;
 	private ArrayList<Budget> listOfAllBudgets;
 	
+	
+	
 	public User() {}
 	
 	public void defineUser(int id, String username, String firstName, String lastName, double balance) {
@@ -116,15 +118,15 @@ public class User {
 		switch(budgetToCheck.spendInBudget(amountInput)) {
 			// Exceeds budget
 			case 'E':
-				System.out.println("\nThe " + budgetToCheck.getBudgetTitle() + " budget has been exceeded! It is at " + budgetToCheck.getBudgetBalance());
+				System.out.println("\nThe " + budgetToCheck.getTitle() + " budget has been exceeded! It is at " + budgetToCheck.getBalance());
 				break;
 			// Within 25% of the limit of the budget
 			case 'C':
-				System.out.println("\nThe " + budgetToCheck.getBudgetTitle() + " budget is within 25% of its limit! It is at " + budgetToCheck.getBudgetBalance());
+				System.out.println("\nThe " + budgetToCheck.getTitle() + " budget is within 25% of its limit! It is at " + budgetToCheck.getBalance());
 				break;
 			// Is not within 25% of the limit or exceeding
 			case 'F':
-				System.out.println("\nThe " + budgetToCheck.getBudgetTitle() + " is at " + budgetToCheck.getBudgetBalance());
+				System.out.println("\nThe " + budgetToCheck.getTitle() + " is at " + budgetToCheck.getBalance());
 				break;
 			default:
 				break;

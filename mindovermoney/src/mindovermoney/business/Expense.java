@@ -5,8 +5,8 @@ import java.sql.Timestamp;
 public class Expense extends Transaction {
 	private int relatedBudget;
 
-	public Expense(int idInput, String titleInput, double amountInput, String frequencyInput, Timestamp lastOccurenceInput, int relatedBudgetId) {
-		super(idInput, titleInput, amountInput, frequencyInput, lastOccurenceInput);
+	public Expense(int id, String title, double amount, String frequency, Timestamp lastOccurence, int relatedBudgetId) {
+		super(id, title, amount, frequency, lastOccurence);
 		relatedBudget = relatedBudgetId;
 	}
 	
@@ -22,5 +22,9 @@ public class Expense extends Transaction {
 		incrementDate();
 		
 		return balance;
+	}
+	
+	public int getRelatedBudget() {
+		return this.relatedBudget;
 	}
 }
