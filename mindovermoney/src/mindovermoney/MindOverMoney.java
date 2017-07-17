@@ -12,36 +12,17 @@ import mindovermoney.ui.UIControl;
 import mindovermoney.ui.UILogin;
 
 public class MindOverMoney {
-	private static JFrame applicationUI;
+	private static UIControl uiControl;
 	private static DBManager dbManager;
+	private static User user;
 	
 	public static void main(String[] args) throws IOException {
-		User user = new User();
-		
-		applicationUI = new JFrame();
-		setFrameSettings();
-        
+		user = new User();
 		dbManager = new DBManager(user);
 		
-		// Checks the user's credentials before the rest of the program runs
-		UILogin loginDialog = new UILogin(applicationUI, dbManager);
+		uiControl = new UIControl(dbManager, user);
 		
-		// Create the main application window if login is successful
-		UIControl mainDisplay = new UIControl(applicationUI, dbManager, user);
-	}
-	
-	private static void setFrameSettings() {
-		applicationUI.setTitle("Mind Over Money");
-		applicationUI.setLocationByPlatform(true);
-		applicationUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		applicationUI.setSize(270, 400);
-        
-        // Sets the look and feel of the frame to the default for the operating system
-        try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
-				| UnsupportedLookAndFeelException e) {
-			e.printStackTrace();
-		}
+		uiControl.loginScreen();
+		uiControl.menuScreen();
 	}
 }

@@ -1,8 +1,14 @@
+Version 0.1.1:
+* Restructured the UI architecture
+* Several UI classes are not fully implemented in this build
+* Fixed several issues related to database access
+* Fixed an issue related to the project refactoring done in the last two builds
+
 Version 0.1.0:
 * Fixed some bugs caused by renaming the project/repository
 * Implemented all DAO methods dealing with setting table data
 * Renamed some variables and methods for consistency
-* Moved to 0.1.* to reflect major changes to the program
+* Moved to 0.1.* to reflect major changes to the project
 
 Version 0.0.7:
 * Renamed project Mind Over Money to reflect application name change

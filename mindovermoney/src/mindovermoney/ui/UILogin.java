@@ -15,33 +15,31 @@ import mindovermoney.db.DBManager;
 
 import com.jgoodies.forms.layout.FormSpecs;
 
-public class UILogin extends JDialog {
+public class UILogin extends JDialog implements UIPanelDisplayInterface {
+	private UIControl uiControl;
 	private DBManager dbManager;
 
 	private String username;
 	private String password;
 	private static boolean loginSuccess;
 
-	public UILogin(JFrame parentFrame, DBManager dbManager) {
-		super(parentFrame, "Mind Over Money", true);
-		getContentPane().setBackground(new Color(0, 0, 0));
+	public UILogin(UIControl uiControl, DBManager dbManager) {
+		super(uiControl, "Mind Over Money", true);
 		
+		this.uiControl = uiControl;
 		this.dbManager = dbManager;
+
+		buildPanel();
+	}
+
+	private void buildPanel() {
+		getContentPane().setBackground(new Color(0, 0, 0));
 		
 		loginSuccess = false;
 		
-    	createLoginScreen();
-    	
-		pack();
-		setResizable(false);
-		setLocationRelativeTo(parentFrame);
-		setVisible(true);
-	}
-	
-	private void createLoginScreen() {
 		// Component Declarations
 		JPanel panelLoginGrid, panelButtonInput, panelLoginPrimary, panelButtonGrid, panelLoginInput, panelLoginAndButton;
-		JLabel labelLoginScreenTitle, labelUsername, labelPassword;
+		JLabel labelTitle, labelUsername, labelPassword;
 		Component strutPrimaryNorth, strutPrimaryEast, strutPrimaryWest, strutPrimarySouth, strutButtonWest, strutLoginWest, strutLoginEast, strutButtonEast;
 		JTextField textFieldUsername;
 		JPasswordField textFieldPassword;
@@ -85,7 +83,7 @@ public class UILogin extends JDialog {
     	strutLoginEast = Box.createHorizontalStrut(20);
 
     	// Labels
-    	labelLoginScreenTitle = new JLabel(new ImageIcon(UILogin.class.getResource("/resources/loginTitle.png")), SwingConstants.CENTER);
+    	labelTitle = new JLabel(new ImageIcon(UILogin.class.getResource("/resources/loginTitle.png")), SwingConstants.CENTER);
     	
     	labelUsername = new JLabel("Username: ");
     	labelUsername.setForeground(new Color(255, 255, 255));
@@ -168,7 +166,7 @@ public class UILogin extends JDialog {
     	this.getContentPane().add(strutPrimarySouth, BorderLayout.SOUTH);
     	this.getContentPane().add(panelLoginPrimary, BorderLayout.CENTER);
 
-    	panelLoginPrimary.add(labelLoginScreenTitle);
+    	panelLoginPrimary.add(labelTitle);
     	panelLoginPrimary.add(panelLoginAndButton);
     	
     	panelLoginAndButton.add(panelLoginGrid);
@@ -193,6 +191,15 @@ public class UILogin extends JDialog {
 
     	// Sets the default selected button to be the Login Button
     	SwingUtilities.getRootPane(buttonLogin).setDefaultButton(buttonLogin);
+
+		pack();
+		setResizable(false);
+		setLocationRelativeTo(null);
+	}
+	
+	@Override
+	public void display() {
+		setVisible(true);
 	}
 	
 	public boolean isLoginSuccess() {
