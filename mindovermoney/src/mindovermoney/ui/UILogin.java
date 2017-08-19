@@ -21,7 +21,7 @@ public class UILogin extends JDialog implements UIPanelDisplayInterface {
 
 	private String username;
 	private String password;
-	private static boolean loginSuccess;
+	private boolean loginSuccess;
 
 	public UILogin(UIControl uiControl, DBManager dbManager) {
 		super(uiControl, "Mind Over Money", true);
@@ -42,7 +42,7 @@ public class UILogin extends JDialog implements UIPanelDisplayInterface {
 		JLabel labelTitle, labelUsername, labelPassword;
 		Component strutPrimaryNorth, strutPrimaryEast, strutPrimaryWest, strutPrimarySouth, strutButtonWest, strutLoginWest, strutLoginEast, strutButtonEast;
 		JTextField textFieldUsername;
-		JPasswordField textFieldPassword;
+		JPasswordField passwordFieldPassword;
 		JButton buttonLogin, buttonCreateAccount, buttonCancel;
 		
 
@@ -95,7 +95,7 @@ public class UILogin extends JDialog implements UIPanelDisplayInterface {
     	
     	// Text Fields
     	textFieldUsername = new JTextField(15);
-    	textFieldPassword = new JPasswordField(15);
+    	passwordFieldPassword = new JPasswordField(15);
     	
     	//Buttons
     	buttonLogin = new JButton("Login");
@@ -114,7 +114,7 @@ public class UILogin extends JDialog implements UIPanelDisplayInterface {
     	buttonLogin.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent ae) {
     			username = textFieldUsername.getText().trim();
-    			password = new String(textFieldPassword.getPassword());
+    			password = new String(passwordFieldPassword.getPassword());
     			try {
     				if(dbManager.validateUser(username, password)) {
     					loginSuccess = true;
@@ -125,7 +125,7 @@ public class UILogin extends JDialog implements UIPanelDisplayInterface {
     				{
     					JOptionPane.showMessageDialog(UILogin.this, "Invalid Login Credentials", "Login", JOptionPane.ERROR_MESSAGE);
     					textFieldUsername.setText("");
-    					textFieldPassword.setText("");
+    					passwordFieldPassword.setText("");
     					loginSuccess = false;
     				}
     			} catch (Exception e) {
@@ -136,8 +136,7 @@ public class UILogin extends JDialog implements UIPanelDisplayInterface {
     	
     	buttonCreateAccount.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent ae) {
-    			// Write code that create a new account here
-    			
+    			uiControl.createAccountScreen();
     		}
     	});
     	
@@ -160,11 +159,11 @@ public class UILogin extends JDialog implements UIPanelDisplayInterface {
 		});
     	
     	// Adds all components to the pane
-    	this.getContentPane().add(strutPrimaryWest, BorderLayout.WEST);
-    	this.getContentPane().add(strutPrimaryEast, BorderLayout.EAST);
-    	this.getContentPane().add(strutPrimaryNorth, BorderLayout.NORTH);
-    	this.getContentPane().add(strutPrimarySouth, BorderLayout.SOUTH);
-    	this.getContentPane().add(panelLoginPrimary, BorderLayout.CENTER);
+    	getContentPane().add(strutPrimaryWest, BorderLayout.WEST);
+    	getContentPane().add(strutPrimaryEast, BorderLayout.EAST);
+    	getContentPane().add(strutPrimaryNorth, BorderLayout.NORTH);
+    	getContentPane().add(strutPrimarySouth, BorderLayout.SOUTH);
+    	getContentPane().add(panelLoginPrimary, BorderLayout.CENTER);
 
     	panelLoginPrimary.add(labelTitle);
     	panelLoginPrimary.add(panelLoginAndButton);
@@ -179,7 +178,7 @@ public class UILogin extends JDialog implements UIPanelDisplayInterface {
     	panelLoginInput.add(labelUsername);
     	panelLoginInput.add(textFieldUsername);
     	panelLoginInput.add(labelPassword);
-    	panelLoginInput.add(textFieldPassword);
+    	panelLoginInput.add(passwordFieldPassword);
     	
     	panelButtonGrid.add(strutButtonWest);
     	panelButtonGrid.add(panelButtonInput);
@@ -192,7 +191,7 @@ public class UILogin extends JDialog implements UIPanelDisplayInterface {
     	// Sets the default selected button to be the Login Button
     	SwingUtilities.getRootPane(buttonLogin).setDefaultButton(buttonLogin);
 
-		pack();
+    	pack();
 		setResizable(false);
 		setLocationRelativeTo(null);
 	}

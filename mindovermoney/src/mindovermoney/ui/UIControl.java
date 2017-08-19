@@ -13,7 +13,7 @@ public class UIControl extends JFrame {
 	private User user;
 	
 	private UILogin dialogLogin;
-	
+	private UICreateAccount dialogCreateAccount;
 	private UIMenu panelMenu;
 	private UIDisplay panelDisplay;
 	private UIIncome panelIncome;
@@ -27,6 +27,7 @@ public class UIControl extends JFrame {
     	this.user = user;
     	
     	dialogLogin = new UILogin(this, dbManager);
+    	dialogCreateAccount = new UICreateAccount(this, dbManager);
     	panelMenu = new UIMenu(this);
     	panelMenu.setOpaque(true);
     	panelDisplay = new UIDisplay(this, dbManager, user);
@@ -38,17 +39,17 @@ public class UIControl extends JFrame {
     	panelBudget = new UIBudget(this, dbManager, user);
     	panelBudget.setOpaque(true);
     	
-    	this.add(panelMenu);
-    	this.add(panelDisplay);
-    	this.add(panelIncome);
-    	this.add(panelExpense);
-    	this.add(panelBudget);
+    	add(panelMenu);
+    	add(panelDisplay);
+    	add(panelIncome);
+    	add(panelExpense);
+    	add(panelBudget);
     }
 	
 	private void setSettings() {
-		this.setTitle("Mind Over Money");
-		this.setLocationByPlatform(true);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("Mind Over Money");
+		setLocationByPlatform(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         // Sets the look and feel of the frame to the default for the operating system
         try {
@@ -63,8 +64,12 @@ public class UIControl extends JFrame {
 		dialogLogin.display();
 	}
 	
+	public void createAccountScreen() {
+		dialogCreateAccount.display();
+	}
+	
 	public void menuScreen() {
-		this.setVisible(true);
+		setVisible(true);
 		panelMenu.display();
 	}
 	

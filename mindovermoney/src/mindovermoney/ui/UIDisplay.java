@@ -38,16 +38,16 @@ public class UIDisplay extends JPanel implements UIPanelDisplayInterface {
     	JScrollPane scrollExpense = new JScrollPane(panelExpense);
     	JScrollPane scrollLoan = new JScrollPane(panelLoan);
     	
-    	this.add(panelBalance);
-    	this.add(scrollBudget);
-    	this.add(scrollIncome);
-    	this.add(scrollExpense);
-    	this.add(scrollLoan);
+    	add(panelBalance);
+    	add(scrollBudget);
+    	add(scrollIncome);
+    	add(scrollExpense);
+    	add(scrollLoan);
 	}
 
 	@Override
 	public void display() {
-    	this.setVisible(true);
+    	setVisible(true);
 		uiControl.setContentPane(this);
 		uiControl.pack();
 		uiControl.setLocationRelativeTo(null);

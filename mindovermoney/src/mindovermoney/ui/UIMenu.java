@@ -17,7 +17,7 @@ public class UIMenu extends JPanel implements UIPanelDisplayInterface {
 	}
 	
 	private void buildPanel() {
-		this.setBackground(new Color(0, 0, 0));
+		setBackground(new Color(0, 0, 0));
 
 		JPanel panelTitle, panelButtonGrid, panelButtons;
 		JLabel labelTitle;
@@ -117,13 +117,13 @@ public class UIMenu extends JPanel implements UIPanelDisplayInterface {
         panelButtonGrid.add(panelButtons);
         panelButtonGrid.add(strutButtonEast);
         
-        this.add(panelTitle);
-        this.add(panelButtonGrid);
+        add(panelTitle);
+        add(panelButtonGrid);
 	}
 	
 	@Override
 	public void display() {
-		this.setVisible(true);
+		setVisible(true);
 		uiControl.setContentPane(this);
 		uiControl.pack();
 		uiControl.setLocationRelativeTo(null);
